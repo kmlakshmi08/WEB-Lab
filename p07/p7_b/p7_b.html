@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>form validation</title>
+    </head>
+    <body >
+        <div align="center">
+        <h1>form validation</h1>
+        <form >
+            <input type="text" id="name" placeholder="enter ur name"><br>
+            <input type="email" id="email" placeholder="enter ur email"><br>
+            <input type="tel" id="num" placeholder="enter ur number"><br>
+
+            <select id="gender">
+                <option value="" disabled selected hidden>select ur gender</option>
+                <option value="female">female</option>
+                <option value="male">male</option>
+            </select>
+            <br>
+
+            <input type="text" id="color" placeholder="ur fav color"><br>
+            <input type="button" value="Submit" onclick="validation()"><br>
+<br>
+            <textarea rows="6" cols="40" id="output" placeholder="info is displayed" readonly></textarea>
+            <br>
+        </div>
+
+        </form>
+
+        <script>
+            function validation(){
+                var name=document.getElementById('name').value;
+                var email=document.getElementById('email').value;
+                var num=document.getElementById('num').value;
+                var gender=document.getElementById('gender').value;
+                var color=document.getElementById('color').value;
+
+                if(num===""){
+                    alert('enter ur name correctly');
+                    return;
+                }
+
+                if(email==="" || !email.includes('.') || !email.includes('@')){
+                    alert('enter ur mail');
+                    return;
+                }
+
+                if(num==="" || num.length!==10){
+                    alert('enter ur number');
+                    return;
+                }
+
+                if(gender===""){
+                    alert('enter ur gender');
+                    return;
+                }
+
+                if(color===""){
+                    alert('enter ur fav color');
+                    return;
+                }
+
+                var info="name:"+name+"\n"+
+                         "email:"+email+"\n"+
+                         "number:"+num+"\n"+
+                         "gender:"+gender+"\n"+
+                         "color:"+color+"\n";
+                
+                document.getElementById('output').value=info;
+            }
+        </script>
+    </body>
+</html>
